@@ -25,13 +25,15 @@ class DatabaseController(metaclass=Singleton):
         except psql.Error as e:
             Debug.debug_print(f"Возникла ошибка при отключении от базы данных!\nПричина: {Debug.TerminalColors.FAIL}{e}")
             
-    def execute_query(self, query: str, args: list=None):
+    def execute_query(self, query: str, args: list=None, fetch_results: int=-1):
         try:
             self.connect()
             with self.connection, self.connection.cursor() as cursor:
                 cursor.execute(query, args)
+                result = cursor.fetchall() if fetch_results == -1 else cursor.fetchone() if fetch_results == 1 else cursor.fetchmany(fetch_results)
                 self.connection.commit()
                 Debug.debug_print("Запрос выполнен успешно!")
+                return result
         except psql.errors.ForeignKeyViolation:
             Debug.debug_print(f"Возникла ошибка при выполнении запроса!\nПричина: {Debug.TerminalColors.FAIL}Сделано обращение к несуществующему ключу!")
             self.connection.rollback()
@@ -42,4 +44,4 @@ class DatabaseController(metaclass=Singleton):
             Debug.debug_print(f"Возникла ошибка при выполнении запроса!\nПричина: {Debug.TerminalColors.FAIL}{e}")
             self.connection.rollback()
         finally:
-            self.disconnect()
+            self.connection.close()

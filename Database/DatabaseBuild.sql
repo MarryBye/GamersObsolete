@@ -10,12 +10,12 @@ DROP FUNCTION IF EXISTS add_admin CASCADE;
 DROP FUNCTION IF EXISTS get_users CASCADE;
 DROP FUNCTION IF EXISTS add_user CASCADE;
 
-\i Database/check_email.sql
-\i Database/check_no_symbols.sql
-\i Database/check_is_admin.sql
-\i Database/add_admin.sql
-\i Database/get_users.sql
-\i Database/add_user.sql
+\i Database/functions/validation/check_email.sql
+\i Database/functions/validation/check_no_symbols.sql
+\i Database/functions/users/check_is_admin.sql
+\i Database/functions/admins/add_admin.sql
+\i Database/functions/users/get_users.sql
+\i Database/functions/users/add_user.sql
 
 CREATE TABLE IF NOT EXISTS users (
     user_id SERIAL PRIMARY KEY,

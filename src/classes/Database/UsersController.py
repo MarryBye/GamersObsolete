@@ -4,7 +4,8 @@ class UsersController:
     @staticmethod
     def get_users() -> list:
         query = '''SELECT get_users()'''
-        DatabaseController().execute_query(query=query)
+        result = DatabaseController().execute_query(query=query)
+        return result
     
     @staticmethod
     def add_user(user_login: str, user_password: str, user_email: str):
@@ -16,7 +17,8 @@ class UsersController:
     def is_admin(user_id: int) -> bool:
         query = '''SELECT check_is_admin(%s)'''
         args = [user_id]
-        DatabaseController().execute_query(query=query, args=args)
+        result = DatabaseController().execute_query(query=query, args=args, fetch_results=1)
+        return result[0]
     
     @staticmethod
     def make_admin(user_id: int):
