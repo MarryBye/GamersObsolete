@@ -32,6 +32,12 @@ class DatabaseController(metaclass=Singleton):
             self.connect()
             self.cursor.execute(query, args)
             self.connection.commit()
+        except psql.errors.ForeignKeyViolation:
+            print("Возникла ошибка при выполнении запроса!\nСделано обращение к несуществующему ключу!")
+            self.connection.rollback()
+        except psql.errors.UniqueViolation:
+            print("Возникла ошибка при выполнении запроса!\nПовторяется одно из уникальных значений!")
+            self.connection.rollback()
         except psql.Error as e:
             print(f"Возникла ошибка при выполнении запроса!\nПричина: {e}")
             self.connection.rollback()
