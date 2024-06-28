@@ -14,11 +14,11 @@ class DatabaseController(metaclass=Singleton):
             )
             self.cursor = self.connection.cursor()
         except:
-            print("Error while connection to database!")
+            print("Ошибка! Не получилось подключиться к базе данных!")
             
     def disconnect(self):
         try:
-            self.connection.close()
             self.cursor.close()
+            self.connection.close()
         except:
-            print("Error while disconnecting from database!")
+            print("Ошибка! Не получилось отключиться от базы данных!")
