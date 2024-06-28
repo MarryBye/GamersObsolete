@@ -9,6 +9,9 @@ DROP FUNCTION IF EXISTS check_is_admin CASCADE;
 DROP FUNCTION IF EXISTS add_admin CASCADE;
 DROP FUNCTION IF EXISTS get_users CASCADE;
 DROP FUNCTION IF EXISTS add_user CASCADE;
+DROP FUNCTION IF EXISTS add_comment CASCADE;
+DROP FUNCTION IF EXISTS add_news CASCADE;
+DROP FUNCTION IF EXISTS get_news CASCADE;
 
 \i Database/functions/validation/check_email.sql
 \i Database/functions/validation/check_no_symbols.sql
@@ -16,6 +19,9 @@ DROP FUNCTION IF EXISTS add_user CASCADE;
 \i Database/functions/admins/add_admin.sql
 \i Database/functions/users/get_users.sql
 \i Database/functions/users/add_user.sql
+\i Database/functions/news/add_comment.sql
+\i Database/functions/news/add_news.sql
+\i Database/functions/news/get_news.sql
 
 CREATE TABLE IF NOT EXISTS users (
     user_id SERIAL PRIMARY KEY,
@@ -34,9 +40,11 @@ CREATE TABLE IF NOT EXISTS admins (
 
 CREATE TABLE IF NOT EXISTS news (
     news_id SERIAL PRIMARY KEY,
-    admin_id INTEGER UNIQUE REFERENCES admins(admin_id),
+    user_id INTEGER REFERENCES users(user_id),
     news_title VARCHAR(30),
-    news_description TEXT
+    news_description TEXT,
+
+    CONSTRAINT admin_check CHECK (check_is_admin(user_id))
 );
 
 CREATE TABLE IF NOT EXISTS comments (
