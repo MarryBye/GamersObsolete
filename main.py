@@ -1,42 +1,30 @@
 import psycopg2 as psql
 
-conn = psql.connect(
+from src.classes.Database.DatabaseController import DatabaseController
+from src.classes.Database.UsersController import UsersController
+
+UsersController().connect(
+    host="localhost",
+    port="5432",
     database="gmrs_site",
     user="postgres",
-    password="58231",
-    host="localhost",
-    port="5432"
-)
-cursor = conn.cursor()
-
-cursor.execute(
-    ''' 
-    INSERT INTO users(user_login, user_password, user_email) 
-    VALUES (%s, %s, %s) 
-    ''', ("Aboba_1488", "773hH98h*837h", "aboba@gmail.com")
+    password="58231"
 )
 
-cursor.execute(
-    '''
-    SELECT * FROM users
-    '''
+print(UsersController().get_users())
+
+UsersController().add_user(
+    user_login="Aboba_112333", 
+    user_password="83287YEUIWHF8787343h8",
+    user_email="abob2@gmail.com"
 )
 
-data = cursor.fetchall()
-print(data)
-iddd = data[0]
+print(UsersController().get_users())
 
-cursor.execute(
-    '''
-    SELECT add_admin(22)
-    ''', (iddd)
-)
+print(UsersController().is_admin(user_id=1))
 
-cursor.execute(
-    '''
-        SELECT check_is_admin(22)               
-    ''', (iddd)
-)
-print(cursor.fetchall())
-
-conn.commit()
+UsersController().make_admin(user_id=5)
+UsersController().make_admin(user_id=6)
+UsersController().make_admin(user_id=8)
+UsersController().make_admin(user_id=1)
+print(UsersController().is_admin(user_id=5))
