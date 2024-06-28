@@ -1,5 +1,3 @@
-import psycopg2 as psql
-
 from src.classes.Database.DatabaseController import DatabaseController
 
 class UsersController:
