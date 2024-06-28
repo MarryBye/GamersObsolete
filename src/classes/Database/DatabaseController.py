@@ -6,22 +6,17 @@ from src.classes.Singleton import Singleton
 class DatabaseController(metaclass=Singleton):
     def __init__(self):
         self.connection = None
-        self.cursor = None
         
     def connect(self):
         try:
             with open("config.json", encoding="UTF-8") as config_file:
-                self.connection = psql.connect(
-                    **json.load(config_file)["database"]
-                )
-                self.cursor = self.connection.cursor()
+                config = json.load(config_file)["database"]
+                self.connection = psql.connect(**config)
         except (psql.Error, IOError, UnicodeDecodeError) as e:
             print(f"Возникла ошибка при подключении к базе данных!\nПричина: {e}")
             
     def disconnect(self):
         try:
-            if self.cursor:
-                self.cursor.close()
             if self.connection:
                 self.connection.close()
         except psql.Error as e:
@@ -30,8 +25,9 @@ class DatabaseController(metaclass=Singleton):
     def execute_query(self, query: str, args: list=None):
         try:
             self.connect()
-            self.cursor.execute(query, args)
-            self.connection.commit()
+            with self.connection, self.connection.cursor() as cursor:
+                cursor.execute(query, args)
+                self.connection.commit()
         except psql.errors.ForeignKeyViolation:
             print("Возникла ошибка при выполнении запроса!\nСделано обращение к несуществующему ключу!")
             self.connection.rollback()
