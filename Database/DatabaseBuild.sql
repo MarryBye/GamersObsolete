@@ -12,6 +12,8 @@ DROP FUNCTION IF EXISTS add_user CASCADE;
 DROP FUNCTION IF EXISTS add_comment CASCADE;
 DROP FUNCTION IF EXISTS add_news CASCADE;
 DROP FUNCTION IF EXISTS get_news CASCADE;
+DROP FUNCTION IF EXISTS remove_comment CASCADE;
+DROP FUNCTION IF EXISTS remove_news CASCADE;
 
 \i Database/functions/validation/check_email.sql
 \i Database/functions/validation/check_no_symbols.sql
@@ -22,6 +24,8 @@ DROP FUNCTION IF EXISTS get_news CASCADE;
 \i Database/functions/news/add_comment.sql
 \i Database/functions/news/add_news.sql
 \i Database/functions/news/get_news.sql
+\i Database/functions/news/remove_comment.sql
+\i Database/functions/news/remove_news.sql
 
 CREATE TABLE IF NOT EXISTS users (
     user_id SERIAL PRIMARY KEY,
