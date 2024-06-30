@@ -1,3 +1,5 @@
+DROP FUNCTION IF EXISTS remove_admin CASCADE;
+
 CREATE OR REPLACE FUNCTION remove_admin(user_id_arg INTEGER) RETURNS VOID AS $$
 BEGIN
     IF check_is_admin(user_id) THEN

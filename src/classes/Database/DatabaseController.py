@@ -34,11 +34,11 @@ class DatabaseController(metaclass=Singleton):
                 self.connection.commit()
                 Debug.debug_print("Запрос выполнен успешно!")
                 return result
-        except psql.errors.ForeignKeyViolation:
-            Debug.debug_print(f"Возникла ошибка при выполнении запроса!\nПричина: {Debug.TerminalColors.FAIL}Сделано обращение к несуществующему ключу!")
+        except psql.errors.ForeignKeyViolation as e:
+            Debug.debug_print(f"Возникла ошибка при выполнении запроса!\nПричина: {Debug.TerminalColors.FAIL}Сделано обращение к несуществующему ключу!\n{e}")
             self.connection.rollback()
-        except psql.errors.UniqueViolation:
-            Debug.debug_print(f"Возникла ошибка при выполнении запроса!\nПричина: {Debug.TerminalColors.FAIL}Повторяется одно из уникальных значений!")
+        except psql.errors.UniqueViolation as e:
+            Debug.debug_print(f"Возникла ошибка при выполнении запроса!\nПричина: {Debug.TerminalColors.FAIL}Повторяется одно из уникальных значений!\n{e}")
             self.connection.rollback()
         except psql.Error as e:
             Debug.debug_print(f"Возникла ошибка при выполнении запроса!\nПричина: {Debug.TerminalColors.FAIL}{e}")

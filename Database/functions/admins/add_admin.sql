@@ -1,3 +1,5 @@
+DROP FUNCTION IF EXISTS add_admin CASCADE;
+
 CREATE OR REPLACE FUNCTION add_admin(user_id INTEGER) RETURNS VOID AS $$
 BEGIN
     INSERT INTO admins(user_id) VALUES (user_id);

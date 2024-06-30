@@ -1,3 +1,5 @@
+DROP FUNCTION IF EXISTS check_is_admin CASCADE;
+
 CREATE OR REPLACE FUNCTION check_is_admin(user_id_arg INTEGER) RETURNS BOOLEAN AS $$
 DECLARE
     is_admin BOOLEAN;

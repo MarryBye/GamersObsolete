@@ -4,34 +4,13 @@ from src.classes.Database.AdminsController import AdminsController
 from src.classes.Database.NewsController import NewsController
 from src.classes.Database.UsersController import UsersController
 
-# for i in range(10):
-#     UsersController.add_user(
-#         user_login=f"User{i}", 
-#         user_password=f"{str(i)*10}",
-#         user_email=f"aboba{i}@mail.com"
-#     )
-    
-# print(UsersController.get_users())
+database_test()
 
-# AdminsController.add_admin(user_id=1)
-# AdminsController.add_admin(user_id=5)
-# AdminsController.add_admin(user_id=10)
+print(NewsController.get_news())
+print(NewsController.get_comments(news_id=1))
 
-# for user in UsersController.get_users():
-#     NewsController.add_news(
-#         user_id=user[0],
-#         news_title=f"News by user{user[0]}",
-#         news_description="News description"
-#     )
-    
-# print(NewsController.get_news())
+NewsController.remove_comment(comment_id=1, user_id=1)
+NewsController.remove_news(news_id=1, user_id=1)
 
-# for user in UsersController.get_users():
-#     for news in NewsController.get_news():
-#         NewsController.add_comment(
-#             news_id=news[0],
-#             user_id=user[0],
-#             comment_text=f"Comment for news #{news[0]} by user{user[0]}"
-#         )
-
-# print(NewsController.get_comments(news_id=5))
+print(NewsController.get_news())
+print(NewsController.get_comments(news_id=1))

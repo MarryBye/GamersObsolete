@@ -3,20 +3,6 @@ DROP TABLE IF EXISTS admins CASCADE;
 DROP TABLE IF EXISTS news CASCADE;
 DROP TABLE IF EXISTS comments CASCADE;
 
-DROP FUNCTION IF EXISTS check_email CASCADE;
-DROP FUNCTION IF EXISTS check_no_symbols CASCADE;
-DROP FUNCTION IF EXISTS check_is_admin CASCADE;
-DROP FUNCTION IF EXISTS add_admin CASCADE;
-DROP FUNCTION IF EXISTS get_users CASCADE;
-DROP FUNCTION IF EXISTS add_user CASCADE;
-DROP FUNCTION IF EXISTS add_comment CASCADE;
-DROP FUNCTION IF EXISTS add_news CASCADE;
-DROP FUNCTION IF EXISTS get_news CASCADE;
-DROP FUNCTION IF EXISTS remove_comment CASCADE;
-DROP FUNCTION IF EXISTS remove_news CASCADE;
-DROP FUNCTION IF EXISTS get_comments CASCADE;
-DROP FUNCTION IF EXISTS remove_admin CASCADE;
-
 \i Database/functions/validation/check_email.sql
 \i Database/functions/validation/check_no_symbols.sql
 \i Database/functions/users/check_is_admin.sql
