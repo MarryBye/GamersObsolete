@@ -4,8 +4,8 @@ DECLARE
 BEGIN
     SELECT EXISTS (
         SELECT admins.user_id 
-        FROM admins, users
-        WHERE admins.user_id = users.user_id AND user_id_arg = users.user_id
+        FROM admins
+        WHERE admins.user_id = user_id_arg
     ) INTO is_admin;
 
     RETURN is_admin;

@@ -3,7 +3,7 @@ from src.classes.Database.DatabaseController import DatabaseController
 class UsersController:
     @staticmethod
     def get_users() -> list:
-        query = '''SELECT get_users()'''
+        query = '''SELECT * FROM get_users()'''
         result = DatabaseController().execute_query(query=query)
         return result
     
@@ -19,9 +19,3 @@ class UsersController:
         args = [user_id]
         result = DatabaseController().execute_query(query=query, args=args, fetch_results=1)
         return result[0]
-    
-    @staticmethod
-    def make_admin(user_id: int):
-        query = '''SELECT add_admin(%s)'''
-        args = [user_id]
-        DatabaseController().execute_query(query=query, args=args)
