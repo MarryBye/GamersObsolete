@@ -5,6 +5,8 @@ from src.funcs.database_test import database_test
 
 from src.classes.database.ServersController import ServersController
 
+# database_test()
+
 PATH_TO_WEB = os.path.join("src", "web")
 TEMPLATES = os.path.join(PATH_TO_WEB, "templates")
 STATIC = os.path.join(PATH_TO_WEB, "static")

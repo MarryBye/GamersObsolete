@@ -1,0 +1,27 @@
+.server_block {
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(70, 81, 100);
+    box-shadow: 0px 1px 5px black;
+    border-radius: 16px;
+    margin: 16px;
+    padding: 16px;
+}
+
+.server_block .server_info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    line-height: 0px;
+    text-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.server_block img {
+    width: 32px;
+    height: 32px;
+}

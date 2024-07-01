@@ -2,9 +2,9 @@ from src.classes.database.DatabaseController import DatabaseController
 
 class ServersController:
     @staticmethod
-    def add_server(server_name: str, server_version: str, server_description: str, user_id: int):
-        query = '''SELECT add_server(%s, %s, %s, %s)'''
-        args = [server_name, server_version, server_description, user_id]
+    def add_server(server_name: str, server_version: str, server_description: str, server_ip: str, server_port: str, user_id: int):
+        query = '''SELECT add_server(%s, %s, %s, %s, %s, %s)'''
+        args = [server_name, server_version, server_description, server_ip, server_port, user_id]
         DatabaseController().execute_query(query=query, args=args)
         
     @staticmethod

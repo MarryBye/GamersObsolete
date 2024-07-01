@@ -48,3 +48,13 @@
 #warn {
     background-color: rgb(100, 70, 70);
 }
+
+#can_copy {
+    transition: .3s;
+}
+
+#can_copy:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transition: .3s;
+    cursor: pointer;
+}

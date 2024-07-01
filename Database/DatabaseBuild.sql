@@ -56,5 +56,7 @@ CREATE TABLE IF NOT EXISTS servers (
     server_id SERIAL PRIMARY KEY,
     server_name VARCHAR(64),
     server_version VARCHAR(16),
-    server_description TEXT
+    server_description TEXT,
+    server_ip TEXT,
+    server_port TEXT
 );

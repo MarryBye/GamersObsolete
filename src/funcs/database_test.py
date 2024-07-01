@@ -36,6 +36,8 @@ def database_test():
             server_name=f"Server #{i}",
             server_version=f"1.2{i}.{i - 1}",
             server_description=f"Информация про сервер #{i}",
+            server_ip=f"177.{i}{i+1}.185.{i-1}",
+            server_port=f"{i}{i}{i}{i}{i}",
             user_id=user[0]
         )
         
