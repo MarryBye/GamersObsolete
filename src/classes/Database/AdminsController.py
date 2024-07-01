@@ -1,4 +1,4 @@
-from src.classes.Database.DatabaseController import DatabaseController
+from src.classes.database.DatabaseController import DatabaseController
 
 class AdminsController:
     @staticmethod

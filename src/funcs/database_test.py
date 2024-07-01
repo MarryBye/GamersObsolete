@@ -1,6 +1,6 @@
-from src.classes.Database.UsersController import UsersController
-from src.classes.Database.NewsController import NewsController
-from src.classes.Database.AdminsController import AdminsController
+from src.classes.database.UsersController import UsersController
+from src.classes.database.NewsController import NewsController
+from src.classes.database.AdminsController import AdminsController
 
 def database_test():
     

@@ -1,16 +1,21 @@
-from src.funcs.database_test import database_test
+import os
 
-from src.classes.Database.AdminsController import AdminsController
-from src.classes.Database.NewsController import NewsController
-from src.classes.Database.UsersController import UsersController
+from flask import Flask, request, render_template, redirect, url_for
 
-database_test()
+PATH_TO_WEB = os.path.join("src", "web")
+TEMPLATES = os.path.join(PATH_TO_WEB, "templates")
+STATIC = os.path.join(PATH_TO_WEB, "static")
 
-print(NewsController.get_news())
-print(NewsController.get_comments(news_id=1))
+app = Flask(
+    import_name=__name__, 
+    template_folder=TEMPLATES,
+    static_folder=STATIC
+)
 
-NewsController.remove_comment(comment_id=1, user_id=1)
-NewsController.remove_news(news_id=1, user_id=1)
+app.secret_key = "SecretKey"
 
-print(NewsController.get_news())
-print(NewsController.get_comments(news_id=1))
+@app.route("/")
+def index():
+    return render_template("base.html", page_name="Главная")
+
+app.run()
