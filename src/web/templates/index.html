@@ -2,37 +2,55 @@
 
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index/main.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index/content_block.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/content_block.css') }}">
 {% endblock %}
 
 {% block main %}
+
+    {% from 'components/tip.html' import tip %}
+    {% from 'components/warn.html' import warn %}
+
     <div class="columns">
         <div class="left">
             <div class="content_block">
                 <p id="title">Сервер GAMERS - почему?</p>
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt laboriosam id fugiat itaque asperiores voluptatibus unde vel magnam dolorem. Tempore consectetur porro iure sed non accusamus officiis totam voluptatem. Voluptate!</p>
-                <div id="tip">
-                    <img src="{{ url_for('static', filename='img/tip.png') }}">
-                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt laboriosam id fugiat itaque asperiores voluptatibus unde vel magnam dolorem. Tempore consectetur porro iure sed non accusamus officiis totam voluptatem. Voluptate!</p>
-                </div>
+                {{ tip(text='Подсказка для дебилов') }}
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt laboriosam id fugiat itaque asperiores voluptatibus unde vel magnam dolorem. Tempore consectetur porro iure sed non accusamus officiis totam voluptatem. Voluptate!</p>
+            </div>
+            <div class="content_block">
+                <p id="title">Что еще можно сказать?</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt laboriosam id fugiat itaque asperiores voluptatibus unde vel magnam dolorem. Tempore consectetur porro iure sed non accusamus officiis totam voluptatem. Voluptate!</p>
+                {{ tip(text='Подсказка для дебилов') }}
+                {{ warn(text='Важное для дебилов') }}
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt laboriosam id fugiat itaque asperiores voluptatibus unde vel magnam dolorem. Tempore consectetur porro iure sed non accusamus officiis totam voluptatem. Voluptate!</p>
+            </div>
+            <div class="content_block">
+                <p id="title">Что по правилам?</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt laboriosam id fugiat itaque asperiores voluptatibus unde vel magnam dolorem. Tempore consectetur porro iure sed non accusamus officiis totam voluptatem. Voluptate!</p>
+                {{ warn(text='Важное для дебилов') }}
+                {{ warn(text='Важное для дебилов') }}
+                {{ warn(text='Важное для дебилов') }}
+                {{ warn(text='Важное для дебилов') }}
+                {{ warn(text='Важное для дебилов') }}
+                {{ warn(text='Важное для дебилов') }}
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt laboriosam id fugiat itaque asperiores voluptatibus unde vel magnam dolorem. Tempore consectetur porro iure sed non accusamus officiis totam voluptatem. Voluptate!</p>
             </div>
         </div>
         <div class="right">
 
             <div class="content_block" id="last_news">
-                <p>Новость</p>
+                <p id="title">Новость</p>
                 <p>Описание</p>
             </div>
 
             <div class="content_block" id="servers">
                 <ul>
-                    <li>Сервер 1</li>
-                    <li>Сервер 2</li>
-                    <li>Сервер 3</li>
-                    <li>Сервер 4</li>
-                    <li>Сервер 5</li>
+                    {% for server_id, server_name, server_version, server_description in servers %}
+                        <li>{{ server_name }} - версия {{ server_version }} </li>
+                    {% endfor %}
                 </ul>
+                {{ tip(text='Некоторым серверам нужна сборка.') }}
             </div>
 
             <div class="content_block" id="discord">

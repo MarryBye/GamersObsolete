@@ -1,0 +1,6 @@
+{% macro warn(text) %}
+    <div id="warn">
+        <img src="{{ url_for('static', filename='img/warn.png') }}">
+        <p>{{ text }}</p>
+    </div>
+{% endmacro %}

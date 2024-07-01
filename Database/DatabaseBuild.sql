@@ -2,6 +2,7 @@ DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS admins CASCADE;
 DROP TABLE IF EXISTS news CASCADE;
 DROP TABLE IF EXISTS comments CASCADE;
+DROP TABLE IF EXISTS servers CASCADE;
 
 \i Database/functions/validation/check_email.sql
 \i Database/functions/validation/check_no_symbols.sql
@@ -16,6 +17,9 @@ DROP TABLE IF EXISTS comments CASCADE;
 \i Database/functions/news/remove_news.sql
 \i Database/functions/news/get_comments.sql
 \i Database/functions/admins/remove_admin.sql
+\i Database/functions/servers/add_server.sql
+\i Database/functions/servers/get_servers.sql
+\i Database/functions/servers/remove_server.sql
 
 CREATE TABLE IF NOT EXISTS users (
     user_id SERIAL PRIMARY KEY,
@@ -46,4 +50,11 @@ CREATE TABLE IF NOT EXISTS comments (
     news_id INTEGER REFERENCES news(news_id),
     user_id INTEGER REFERENCES users(user_id),
     comment_text VARCHAR(255)
-)
+);
+
+CREATE TABLE IF NOT EXISTS servers (
+    server_id SERIAL PRIMARY KEY,
+    server_name VARCHAR(64),
+    server_version VARCHAR(16),
+    server_description TEXT
+);

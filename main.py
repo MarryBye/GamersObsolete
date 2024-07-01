@@ -1,6 +1,9 @@
 import os
 
 from flask import Flask, request, render_template, redirect, url_for
+from src.funcs.database_test import database_test
+
+from src.classes.database.ServersController import ServersController
 
 PATH_TO_WEB = os.path.join("src", "web")
 TEMPLATES = os.path.join(PATH_TO_WEB, "templates")
@@ -16,7 +19,8 @@ app.secret_key = "SecretKey"
 
 @app.route("/")
 def index():
-    return render_template("index.html", page_name="Главная")
+    servers = ServersController.get_servers()
+    return render_template("index.html", page_name="Главная", servers=servers)
 
 @app.route("/news")
 def news():
@@ -41,5 +45,9 @@ def login():
 @app.route("/register")
 def register():
     return render_template("register.html", page_name="Регистрация")
+
+@app.route("/admin")
+def admin():
+    return render_template("admin.html", page_name="Админ-панель")
 
 app.run()

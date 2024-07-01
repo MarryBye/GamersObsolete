@@ -1,6 +1,7 @@
 from src.classes.database.UsersController import UsersController
 from src.classes.database.NewsController import NewsController
 from src.classes.database.AdminsController import AdminsController
+from src.classes.database.ServersController import ServersController
 
 def database_test():
     
@@ -30,4 +31,11 @@ def database_test():
                 comment_text=f"Comment for news #{news[0]} by user{user[0]}"
             )
         
+    for i, user in enumerate(UsersController.get_users(), 1):
+        ServersController.add_server(
+            server_name=f"Server #{i}",
+            server_version=f"1.2{i}.{i - 1}",
+            server_description=f"Информация про сервер #{i}",
+            user_id=user[0]
+        )
         

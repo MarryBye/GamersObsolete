@@ -13,12 +13,15 @@
     font-size: 24px;
 }
 
-.content_block #tip {
+.content_block p {
+    text-align: justify;
+}
+
+.content_block #tip, #warn {
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
-    background-color: rgb(70, 81, 100);
     border-radius: 16px;
     padding: 16px;
     margin: 16px;
@@ -30,4 +33,18 @@
     width: 32px;
     height: 32px;
     padding-right: 16px;
+}
+
+#warn img {
+    width: 32px;
+    height: 32px;
+    padding-right: 16px;
+}
+
+#tip {
+    background-color: rgb(70, 81, 100);
+}
+
+#warn {
+    background-color: rgb(100, 70, 70);
 }
