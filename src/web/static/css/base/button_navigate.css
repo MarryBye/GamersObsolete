@@ -1,0 +1,23 @@
+.button_navigate {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+
+    font-size: 18px;
+    transition: .3s;
+
+    color: white;
+}
+
+.button_navigate:hover {
+    background: rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: .3s;
+}
+
+.button_img {
+    width: 18px;
+    margin-right: 8px;
+}

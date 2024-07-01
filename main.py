@@ -9,7 +9,7 @@ STATIC = os.path.join(PATH_TO_WEB, "static")
 app = Flask(
     import_name=__name__, 
     template_folder=TEMPLATES,
-    static_folder=STATIC
+    static_folder=STATIC,
 )
 
 app.secret_key = "SecretKey"
