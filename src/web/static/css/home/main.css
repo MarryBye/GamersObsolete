@@ -4,9 +4,13 @@ main .columns {
 }
 
 main .columns .left {
-    color: aqua;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 main .columns .right {
-    color: rebeccapurple;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
