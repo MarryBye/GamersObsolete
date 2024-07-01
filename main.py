@@ -16,6 +16,6 @@ app.secret_key = "SecretKey"
 
 @app.route("/")
 def index():
-    return render_template("base.html", page_name="Главная")
+    return render_template("home.html", page_name="Главная")
 
 app.run()
