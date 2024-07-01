@@ -1,0 +1,25 @@
+nav {
+    position: sticky;
+    top: 0px;
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 72px;
+
+    background: rgb(32, 37, 46);
+
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+nav .logo_img {
+    width: 10%;
+    height: 75%;
+}
+
+nav .buttons {
+    display: flex;
+    flex-direction: row;
+}

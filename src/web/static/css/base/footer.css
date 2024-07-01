@@ -1,0 +1,11 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    justify-self: flex-end;
+    text-align: center;
+    box-sizing: border-box;
+    border-bottom: 3px solid rgb(255, 255, 255);
+    border-top: 3px solid rgb(255, 255, 255);
+    backdrop-filter: blur(24px);
+    background: rgba(0, 0, 0, 0.2);
+}

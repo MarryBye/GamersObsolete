@@ -6,12 +6,14 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base/body.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base/button_navigate.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base/header.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base/footer.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base/main.css') }}">
+        <link rel="stylesheet" href="{{ url_for('static', filename='css/base/nav.css') }}">
     </head>
 
     <body>
 
         <header>
-
             <div class="top">
                 <div class="button_navigate">
                     <img src="{{ url_for('static', filename='img/login.png') }}" class="button_img">
@@ -26,60 +28,47 @@
                     </div>
                 </div>
             </div>
+        </header>
 
-            <div class="navbar">
-                <img class="logo_img" src="{{ url_for('static', filename='img/logo.jpg') }}">
-                <div class="buttons">
-                    <div class="button_navigate">
-                        <img src="{{ url_for('static', filename='img/home.png') }}" class="button_img">
-                        <div class="button_right">
-                            <span>Главная</span>
-                        </div>
+        <nav>
+            <img class="logo_img" src="{{ url_for('static', filename='img/logo.jpg') }}">
+            <div class="buttons">
+                <div class="button_navigate">
+                    <img src="{{ url_for('static', filename='img/home.png') }}" class="button_img">
+                    <div class="button_right">
+                        <span>Главная</span>
                     </div>
-                    <div class="button_navigate">
-                        <img src="{{ url_for('static', filename='img/news.png') }}" class="button_img">
-                        <div class="button_right">
-                            <span>Новости</span>
-                        </div>
+                </div>
+                <div class="button_navigate">
+                    <img src="{{ url_for('static', filename='img/news.png') }}" class="button_img">
+                    <div class="button_right">
+                        <span>Новости</span>
                     </div>
-                    <div class="button_navigate">
-                        <img src="{{ url_for('static', filename='img/servers.png') }}" class="button_img">
-                        <div class="button_right">
-                            <span>Сервера</span>
-                        </div>
+                </div>
+                <div class="button_navigate">
+                    <img src="{{ url_for('static', filename='img/servers.png') }}" class="button_img">
+                    <div class="button_right">
+                        <span>Сервера</span>
                     </div>
-                    <div class="button_navigate">
-                        <img src="{{ url_for('static', filename='img/forum.png') }}" class="button_img">
-                        <div class="button_right">
-                            <span>Форум</span>
-                        </div>
+                </div>
+                <div class="button_navigate">
+                    <img src="{{ url_for('static', filename='img/forum.png') }}" class="button_img">
+                    <div class="button_right">
+                        <span>Форум</span>
                     </div>
-                    <div class="button_navigate">
-                        <img src="{{ url_for('static', filename='img/contacts.png') }}" class="button_img">
-                        <div class="button_right">
-                            <span>Контакты</span>
-                        </div>
+                </div>
+                <div class="button_navigate">
+                    <img src="{{ url_for('static', filename='img/contacts.png') }}" class="button_img">
+                    <div class="button_right">
+                        <span>Контакты</span>
                     </div>
                 </div>
             </div>
-
-        </header>
+        </nav>
 
         <main>
-
+            <p>Aboba</p>
         </main>
-
-        <footer>
-
-        </footer>
-
-        <div class="main">
-
-        </div>
-
-        <div class="bottom_part">
-
-        </div>
 
     </body>
 </html>
