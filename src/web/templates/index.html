@@ -2,15 +2,42 @@
 
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index/content_block.css') }}">
 {% endblock %}
 
 {% block main %}
     <div class="columns">
         <div class="left">
-            <p>Aboba</p>
+            <div class="content_block">
+                <p id="title">Сервер GAMERS - почему?</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt laboriosam id fugiat itaque asperiores voluptatibus unde vel magnam dolorem. Tempore consectetur porro iure sed non accusamus officiis totam voluptatem. Voluptate!</p>
+                <div id="tip">
+                    <img src="{{ url_for('static', filename='img/tip.png') }}">
+                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt laboriosam id fugiat itaque asperiores voluptatibus unde vel magnam dolorem. Tempore consectetur porro iure sed non accusamus officiis totam voluptatem. Voluptate!</p>
+                </div>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Nesciunt laboriosam id fugiat itaque asperiores voluptatibus unde vel magnam dolorem. Tempore consectetur porro iure sed non accusamus officiis totam voluptatem. Voluptate!</p>
+            </div>
         </div>
         <div class="right">
-            <p> aboba </p>
+
+            <div class="content_block" id="last_news">
+                <p>Новость</p>
+                <p>Описание</p>
+            </div>
+
+            <div class="content_block" id="servers">
+                <ul>
+                    <li>Сервер 1</li>
+                    <li>Сервер 2</li>
+                    <li>Сервер 3</li>
+                    <li>Сервер 4</li>
+                    <li>Сервер 5</li>
+                </ul>
+            </div>
+
+            <div class="content_block" id="discord">
+                <iframe src="https://discord.com/widget?id=732704325293572096&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+            </div>
         </div>
     </div>
 {% endblock %}

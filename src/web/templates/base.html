@@ -9,12 +9,11 @@
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base/footer.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base/main.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base/nav.css') }}">
-        {% block head %}
-
-        {% endblock %}
+        {% block head %} {% endblock %}
     </head>
 
     <body>
+
         {% from 'components/navigation_button.html' import navigation_button %}
 
         <header>
@@ -34,9 +33,7 @@
         </nav>
 
         <main>
-            {% block main %}
-
-            {% endblock %}
+            {% block main %} {% endblock %}
         </main>
 
     </body>

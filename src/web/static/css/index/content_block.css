@@ -1,0 +1,33 @@
+.content_block {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: fit-content;
+    background: rgb(32, 37, 46);
+    box-shadow: 0px 1px 5px black;
+    padding: 16px;
+    margin: 16px;
+}
+
+.content_block #title {
+    font-size: 24px;
+}
+
+.content_block #tip {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: rgb(70, 81, 100);
+    border-radius: 16px;
+    padding: 16px;
+    margin: 16px;
+    text-align: justify;
+    box-shadow: 0px 1px 5px black;
+}
+
+#tip img {
+    width: 32px;
+    height: 32px;
+    padding-right: 16px;
+}
