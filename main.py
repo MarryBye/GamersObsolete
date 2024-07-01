@@ -4,6 +4,7 @@ from flask import Flask, request, render_template, redirect, url_for
 from src.funcs.database_test import database_test
 
 from src.classes.database.ServersController import ServersController
+from src.classes.database.NewsController import NewsController
 
 # database_test()
 
@@ -22,7 +23,8 @@ app.secret_key = "SecretKey"
 @app.route("/")
 def index():
     servers = ServersController.get_servers()
-    return render_template("index.html", page_name="Главная", servers=servers)
+    last_news = list(reversed(NewsController.get_news()))[0]
+    return render_template("index.html", page_name="Главная", servers=servers, last_news=last_news)
 
 @app.route("/news")
 def news():

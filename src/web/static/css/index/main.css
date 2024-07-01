@@ -16,3 +16,11 @@ main .columns .right {
     flex-direction: column;
     justify-content: flex-start;
 }
+
+#last_news #title {
+    text-align: center;
+}
+
+#servers #title {
+    text-align: center;
+}

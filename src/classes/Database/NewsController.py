@@ -9,7 +9,7 @@ class NewsController:
         return result
     
     @staticmethod
-    def get_news():
+    def get_news() -> list:
         query = '''SELECT * FROM get_news()'''
         result = DatabaseController().execute_query(query=query)
         return result

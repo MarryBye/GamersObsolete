@@ -41,11 +41,12 @@
         <div class="right">
 
             <div class="content_block" id="last_news">
-                <p id="title">Новость</p>
-                <p>Описание</p>
+                <p id="title">{{ last_news[2] }}</p>
+                <p>{{ last_news[3] }}</p>
             </div>
 
             <div class="content_block" id="servers">
+                <p id="title">Сервера</p>
                 {% for server_id, server_name, server_version, _, server_ip, server_port in servers %}
                     <div class="server_block">
                         <img src="{{ url_for('static', filename='img/server.png') }}">
