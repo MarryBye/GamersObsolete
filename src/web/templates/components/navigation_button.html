@@ -1,0 +1,8 @@
+{% macro navigation_button(text, image, link) %}
+    <div class="button_navigate">
+        <img src="{{ url_for('static', filename='img/' ~ image) }}" class="button_img">
+        <div class="button_right">
+            <a href="{{ url_for( link ) }}"><span>{{ text }}</span></a>
+        </div>
+    </div>
+{% endmacro %}

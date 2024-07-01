@@ -2,7 +2,7 @@
 
 <html>
     <head>
-        <title>GAMERS | {{page_name}}</title>
+        <title>GAMERS | {{ page_name }}</title>
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base/body.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base/button_navigate.css') }}">
         <link rel="stylesheet" href="{{ url_for('static', filename='css/base/header.css') }}">
@@ -15,55 +15,21 @@
     </head>
 
     <body>
+        {% from 'components/navigation_button.html' import navigation_button %}
 
         <header>
-            <div class="button_navigate">
-                <img src="{{ url_for('static', filename='img/login.png') }}" class="button_img">
-                <div class="button_right">
-                    <a href="{{ url_for('login') }}"><span>Войти</span></a>
-                </div>
-            </div>
-            <div class="button_navigate">
-                <img src="{{ url_for('static', filename='img/register.png') }}" class="button_img">
-                <div class="button_right">
-                    <a href="{{ url_for('register') }}"><span>Регистрация</span></a>
-                </div>
-            </div>
+            {{ navigation_button('Войти', 'login.png', 'login') }}
+            {{ navigation_button('Регистрация', 'register.png', 'register') }}
         </header>
 
         <nav>
             <img class="logo_img" src="{{ url_for('static', filename='img/logo.jpg') }}">
             <div class="buttons">
-                <div class="button_navigate">
-                    <img src="{{ url_for('static', filename='img/index.png') }}" class="button_img">
-                    <div class="button_right">
-                        <a href="{{ url_for('index') }}"><span>Главная</span></a>
-                    </div>
-                </div>
-                <div class="button_navigate">
-                    <img src="{{ url_for('static', filename='img/news.png') }}" class="button_img">
-                    <div class="button_right">
-                        <a href="{{ url_for('news') }}"><span>Новости</span></a>
-                    </div>
-                </div>
-                <div class="button_navigate">
-                    <img src="{{ url_for('static', filename='img/servers.png') }}" class="button_img">
-                    <div class="button_right">
-                        <a href="{{ url_for('servers') }}"><span>Сервера</span></a>
-                    </div>
-                </div>
-                <div class="button_navigate">
-                    <img src="{{ url_for('static', filename='img/forum.png') }}" class="button_img">
-                    <div class="button_right">
-                        <a href="{{ url_for('forum') }}"><span>Форум</span></a>
-                    </div>
-                </div>
-                <div class="button_navigate">
-                    <img src="{{ url_for('static', filename='img/contacts.png') }}" class="button_img">
-                    <div class="button_right">
-                        <a href="{{ url_for('contacts') }}"><span>Контакты</span></a>
-                    </div>
-                </div>
+                {{ navigation_button('Главная', 'index.png', 'index') }}
+                {{ navigation_button('Новости', 'news.png', 'news') }}
+                {{ navigation_button('Сервера', 'servers.png', 'servers') }}
+                {{ navigation_button('Форум', 'forum.png', 'forum') }}
+                {{ navigation_button('Контакты', 'contacts.png', 'contacts') }}
             </div>
         </nav>
 
