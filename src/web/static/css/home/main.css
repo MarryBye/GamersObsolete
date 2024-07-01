@@ -1,0 +1,12 @@
+main .columns {
+    display: flex;
+    flex-direction: row;
+}
+
+main .columns .left {
+    color: aqua;
+}
+
+main .columns .right {
+    color: rebeccapurple;
+}
