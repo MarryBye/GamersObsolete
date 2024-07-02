@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/news/main.css') }}">
 {% endblock %}
 
 {% block main %}
@@ -12,7 +12,12 @@
 
     <div class="columns">
         <div class="left">
-            <p>Aboba</p>
+            {% for id, user, title, description in page_content["all_news"] %}
+                <div class="content_block">
+                    <p id="title">{{ title }}</p>
+                    <p>{{ description }}</p>
+                </div>
+            {% endfor %}
         </div>
         <div class="right">
             {{ blocky_content(page_content) }}

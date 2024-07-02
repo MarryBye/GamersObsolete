@@ -1,12 +1,12 @@
 import os
 
-from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, session
 from src.funcs.database_test import database_test
 
 from src.classes.database.ServersController import ServersController
 from src.classes.database.NewsController import NewsController
 
-#database_test()
+# database_test()
 
 PATH_TO_WEB = os.path.join("src", "web")
 TEMPLATES = os.path.join(PATH_TO_WEB, "templates")
@@ -17,6 +17,8 @@ app = Flask(
     template_folder=TEMPLATES,
     static_folder=STATIC,
 )
+app.permanent_session_lifetime = True
+
 
 app.secret_key = "SecretKey"
 
@@ -33,11 +35,12 @@ def index():
 @app.route("/news")
 def news():
     servers = ServersController.get_servers()
-    last_news = NewsController.get_news(reversed=True)[0]
+    news = NewsController.get_news(reversed=True)
+    print(news)
     return render_template(
         template_name_or_list="news.html", 
         page_name="Новости", 
-        page_content={"servers": servers, "last_news": last_news}
+        page_content={"servers": servers, "last_news": news[0], "all_news": news}
     )
 
 @app.route("/servers")

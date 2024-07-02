@@ -1,0 +1,24 @@
+main .columns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    color: white;
+}
+
+main .columns .left {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-auto-rows: max-content;
+    
+}
+
+main .columns .left .content_block {
+    height: 220px;
+}
+
+main .columns .right {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
