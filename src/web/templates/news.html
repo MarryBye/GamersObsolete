@@ -1,16 +1,21 @@
 {% extends "base.html" %}
 
 {% block head %}
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/home/main.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index/main.css') }}">
 {% endblock %}
 
 {% block main %}
+
+    {% from 'components/tip.html' import tip %}
+    {% from 'components/warn.html' import warn %}
+    {% from 'components/blocky_content.html' import blocky_content %}
+
     <div class="columns">
         <div class="left">
             <p>Aboba</p>
         </div>
         <div class="right">
-            <p> aboba </p>
+            {{ blocky_content(page_content) }}
         </div>
     </div>
 {% endblock %}

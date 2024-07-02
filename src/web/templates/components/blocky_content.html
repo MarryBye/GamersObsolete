@@ -1,0 +1,27 @@
+{% macro blocky_content(page_content) %}
+    
+    {% from 'components/warn.html' import warn %}
+
+    <div class="content_block" id="last_news">
+        <p id="title">{{ page_content["last_news"][2] }}</p>
+        <p>{{ page_content["last_news"][3] }}</p>
+    </div>
+
+    <div class="content_block" id="servers">
+        <p id="title">Сервера</p>
+        {% for id, name, version, _, ip, port in page_content["servers"] %}
+            <div class="server_block">
+                <img src="{{ url_for('static', filename='img/server.png') }}">
+                <div class="server_info">
+                    <p>{{ name }} {{ version }}</p>
+                    <p id="can_copy">{{ ip }}:{{ port }}</p>
+                </div>
+            </div>
+        {% endfor %}
+        {{ warn(text='Некоторым серверам нужна сборка!') }}
+    </div>
+
+    <div class="content_block" id="discord">
+        <iframe src="https://discord.com/widget?id=732704325293572096&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
+    </div>
+{% endmacro %}

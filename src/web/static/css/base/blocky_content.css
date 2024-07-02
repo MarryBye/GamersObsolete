@@ -25,3 +25,11 @@
     width: 32px;
     height: 32px;
 }
+
+#last_news #title {
+    text-align: center;
+}
+
+#servers #title {
+    text-align: center;
+}

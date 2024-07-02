@@ -2,14 +2,13 @@
 
 {% block head %}
     <link rel="stylesheet" href="{{ url_for('static', filename='css/index/main.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/index/servers_list.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/base/content_block.css') }}">
 {% endblock %}
 
 {% block main %}
 
     {% from 'components/tip.html' import tip %}
     {% from 'components/warn.html' import warn %}
+    {% from 'components/blocky_content.html' import blocky_content %}
 
     <div class="columns">
         <div class="left">
@@ -39,29 +38,7 @@
             </div>
         </div>
         <div class="right">
-
-            <div class="content_block" id="last_news">
-                <p id="title">{{ last_news[2] }}</p>
-                <p>{{ last_news[3] }}</p>
-            </div>
-
-            <div class="content_block" id="servers">
-                <p id="title">Сервера</p>
-                {% for server_id, server_name, server_version, _, server_ip, server_port in servers %}
-                    <div class="server_block">
-                        <img src="{{ url_for('static', filename='img/server.png') }}">
-                        <div class="server_info">
-                            <p>{{ server_name }} {{ server_version }}</p>
-                            <p id="can_copy">{{ server_ip }}:{{ server_port }}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-                {{ warn(text='Некоторым серверам нужна сборка!') }}
-            </div>
-
-            <div class="content_block" id="discord">
-                <iframe src="https://discord.com/widget?id=732704325293572096&theme=dark" width="350" height="500" allowtransparency="true" frameborder="0" sandbox="allow-popups allow-popups-to-escape-sandbox allow-same-origin allow-scripts"></iframe>
-            </div>
+            {{ blocky_content(page_content) }}
         </div>
     </div>
 {% endblock %}

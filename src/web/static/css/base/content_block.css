@@ -54,7 +54,7 @@
 }
 
 #can_copy:hover {
-    background: rgba(0, 0, 0, 0.2);
+    background-color: rgb(70, 81, 100, 0.2);
     transition: .3s;
     cursor: pointer;
 }

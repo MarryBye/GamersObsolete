@@ -24,23 +24,51 @@ app.secret_key = "SecretKey"
 def index():
     servers = ServersController.get_servers()
     last_news = NewsController.get_news(reversed=True)[0]
-    return render_template("index.html", page_name="Главная", servers=servers, last_news=last_news)
+    return render_template(
+        template_name_or_list="index.html", 
+        page_name="Главная", 
+        page_content={"servers": servers, "last_news": last_news}
+    )
 
 @app.route("/news")
 def news():
-    return render_template("news.html", page_name="Новости")
+    servers = ServersController.get_servers()
+    last_news = NewsController.get_news(reversed=True)[0]
+    return render_template(
+        template_name_or_list="news.html", 
+        page_name="Новости", 
+        page_content={"servers": servers, "last_news": last_news}
+    )
 
 @app.route("/servers")
 def servers():
-    return render_template("servers.html", page_name="Сервера")
+    servers = ServersController.get_servers()
+    last_news = NewsController.get_news(reversed=True)[0]
+    return render_template(
+        template_name_or_list="servers.html", 
+        page_name="Сервера", 
+        page_content={"servers": servers, "last_news": last_news}
+    )
 
 @app.route("/forum")
 def forum():
-    return render_template("forum.html", page_name="Форум")
+    servers = ServersController.get_servers()
+    last_news = NewsController.get_news(reversed=True)[0]
+    return render_template(
+        template_name_or_list="forum.html", 
+        page_name="Форум", 
+        page_content={"servers": servers, "last_news": last_news}
+    )
 
 @app.route("/contacts")
 def contacts():
-    return render_template("contacts.html", page_name="Контакты")
+    servers = ServersController.get_servers()
+    last_news = NewsController.get_news(reversed=True)[0]
+    return render_template(
+        template_name_or_list="contacts.html", 
+        page_name="Контакты", 
+        page_content={"servers": servers, "last_news": last_news}
+    )
 
 @app.route("/login")
 def login():
