@@ -6,7 +6,7 @@ from src.funcs.database_test import database_test
 from src.classes.database.ServersController import ServersController
 from src.classes.database.NewsController import NewsController
 
-# database_test()
+#database_test()
 
 PATH_TO_WEB = os.path.join("src", "web")
 TEMPLATES = os.path.join(PATH_TO_WEB, "templates")
@@ -23,7 +23,7 @@ app.secret_key = "SecretKey"
 @app.route("/")
 def index():
     servers = ServersController.get_servers()
-    last_news = list(reversed(NewsController.get_news()))[0]
+    last_news = NewsController.get_news(reversed=True)[0]
     return render_template("index.html", page_name="Главная", servers=servers, last_news=last_news)
 
 @app.route("/news")

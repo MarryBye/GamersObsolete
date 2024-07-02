@@ -2,13 +2,14 @@ from src.classes.database.DatabaseController import DatabaseController
 
 class UsersController:
     @staticmethod
-    def get_users() -> list:
-        query = '''SELECT * FROM get_users()'''
-        result = DatabaseController().execute_query(query=query)
+    def get_users(reversed: bool=False) -> list:
+        query = '''SELECT * FROM get_users(%s)'''
+        args = [reversed]
+        result = DatabaseController().execute_query(query=query, args=args)
         return result
     
     @staticmethod
-    def add_user(user_login: str, user_password: str, user_email: str):
+    def add_user(user_login: str, user_password: str, user_email: str) -> None:
         query = '''SELECT add_user(%s, %s, %s)'''
         args = [user_login, user_password, user_email]
         DatabaseController().execute_query(query=query, args=args)

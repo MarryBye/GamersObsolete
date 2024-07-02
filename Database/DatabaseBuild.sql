@@ -8,6 +8,7 @@ DROP TABLE IF EXISTS servers CASCADE;
 \i Database/functions/validation/check_no_symbols.sql
 \i Database/functions/users/check_is_admin.sql
 \i Database/functions/admins/add_admin.sql
+\i Database/functions/admins/get_admins.sql
 \i Database/functions/users/get_users.sql
 \i Database/functions/users/add_user.sql
 \i Database/functions/news/add_comment.sql
