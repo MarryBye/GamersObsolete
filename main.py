@@ -5,7 +5,7 @@ from src.funcs.database_test import database_test
 
 from src.classes.database.ServersController import ServersController
 from src.classes.database.NewsController import NewsController
-
+# прикол
 # database_test()
 
 PATH_TO_WEB = os.path.join("src", "web")
